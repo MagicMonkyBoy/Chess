@@ -3,7 +3,8 @@ package Main;
 public class Launcher {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Game game = new Game(1080, 720, "Chess");
+        game.start();
     }
 
 }
