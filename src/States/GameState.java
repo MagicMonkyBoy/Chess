@@ -1,23 +1,35 @@
 package States;
 
+import Board.Board;
 import Handler.Handler;
 
 import java.awt.*;
 
 public class GameState extends State {
 
+    private Board board;
+
+
     public GameState(Handler handler) {
         super(handler);
+
+        board = new Board(handler.getWidth()/2 - 320,0, 80,80, 8, 8, Color.LIGHT_GRAY, Color.GRAY);
+        handler.getMouseManager().setBoard(board);
     }
 
 
     @Override
     public void render(Graphics g) {
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, handler.getWidth(), handler.getHeight());
 
+        board.render(g);
+        board.renderHovering(g);
     }
 
     @Override
     public void tick() {
 
+        board.tick();
     }
 }

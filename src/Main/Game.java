@@ -4,6 +4,7 @@ package Main;
 import Display.Display;
 import Handler.Handler;
 import Input.MouseManager;
+import States.GameState;
 import States.MenuState;
 import States.State;
 
@@ -25,6 +26,7 @@ public class Game implements Runnable {
     private Graphics g;
 
     public MenuState menuState;
+    public GameState gameState;
 
     private MouseManager mouseManager;
 
@@ -70,7 +72,8 @@ public class Game implements Runnable {
         display.getCanvas().addMouseMotionListener(mouseManager);
 
         menuState = new MenuState(handler);
-        State.setState(menuState);
+        gameState = new GameState(handler);
+        State.setState(gameState);
     }
 
     public void run() {

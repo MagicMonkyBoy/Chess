@@ -1,5 +1,7 @@
 package Input;
 
+import Board.Board;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -8,6 +10,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 
     private boolean leftPressed, rightPressed;
     private int mouseX, mouseY;
+    private Board board;
 //    private UIManager uiManager;
 //    private GameObjectManager gameObjectManager;
 
@@ -15,6 +18,9 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 
     }
 
+    public void setBoard(Board board) {
+        this.board = board;
+    }
 //    public void setUIManager(UIManager uiManager) {
 //        this.uiManager = uiManager;
 //    }
@@ -88,6 +94,9 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 //            gameObjectManager.onMouseMove(e);
 //            //System.out.println("MOUSE MOVING GAME OBJECTS");
 //        }
+        if (board != null) {
+            board.onMouseMove(e);
+        }
 
         mouseX = e.getX();
         mouseY = e.getY();
