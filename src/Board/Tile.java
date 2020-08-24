@@ -1,5 +1,7 @@
 package Board;
 
+import GameObjects.Pieces;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
@@ -8,6 +10,7 @@ public class Tile {
     private int x, y, width, height;
     private Color color;
     private Rectangle bounds;
+    private Pieces piece;
     private boolean hovering = false;
 
     public Tile(int x, int y, int width, int height, Color color) {
@@ -44,12 +47,23 @@ public class Tile {
         }
     }
 
+    public void setPiece(Pieces piece) {
+        this.piece = piece;
+    }
+    public Pieces getPiece() {
+        return piece;
+    }
     public int getX() {
         return x;
     }
-
     public int getY() {
         return y;
+    }
+    public int getWidth() {
+        return width;
+    }
+    public int getHeight() {
+        return height;
     }
 
 }
