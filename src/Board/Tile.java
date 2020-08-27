@@ -12,13 +12,15 @@ public class Tile {
     private Rectangle bounds;
     private Pieces piece;
     private boolean hovering = false;
+    private String coordnates;
 
-    public Tile(int x, int y, int width, int height, Color color) {
+    public Tile(int x, int y, int width, int height, Color color, String coordnates) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.color = color;
+        this.coordnates = coordnates;
         bounds = new Rectangle(x, y, width, height);
     }
 
@@ -36,6 +38,7 @@ public class Tile {
         if (hovering) {
             g.setColor(Color.red);
             g.drawRect(x, y, width, height);
+            System.out.println(coordnates);
         }
     }
 

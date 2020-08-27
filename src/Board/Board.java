@@ -17,14 +17,18 @@ public class Board {
         this.numTileHeight = numTileHeight;
         tiles = new Tile[numTileWidth][numTileHeight];
         boolean swap = true;
+        String tempCoordnates = "";
         for (int i = 0; i < tiles.length; i++) {
             swap = !swap;
+            tempCoordnates = (char)(i+65) + "";
             for (int j = 0; j < tiles.length; j++) {
+                String temptempCoordnates = tempCoordnates + (tiles.length - (j));
+                System.out.println(temptempCoordnates);
                 if (swap) {
-                    tiles[i][j] = new Tile(x + (i * tileWidth), y + (j * tileHeight), tileWidth, tileHeight, color1);
+                    tiles[i][j] = new Tile(x + (i * tileWidth), y + (j * tileHeight), tileWidth, tileHeight, color1, temptempCoordnates);
                     swap = !swap;
                 } else {
-                    tiles[i][j] = new Tile(x + (i * tileWidth), y + (j * tileHeight), tileWidth, tileHeight, color2);
+                    tiles[i][j] = new Tile(x + (i * tileWidth), y + (j * tileHeight), tileWidth, tileHeight, color2, temptempCoordnates);
                     swap = !swap;
                 }
             }
@@ -61,5 +65,9 @@ public class Board {
                 tiles[i][j].onMouseMove(e);
             }
         }
+    }
+
+    private String map(int i) {
+        return Character.toString((char) (i));
     }
 }
