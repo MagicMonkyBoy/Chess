@@ -20,7 +20,8 @@ public class GameState extends State {
         handler.getMouseManager().setBoard(board);
         gameObjectManager = new GameObjectManager(handler);
 
-        pawn = new Pawn(handler.getWidth()/2 - 320,0,80,80,Color.WHITE, handler);
+        pawn = new Pawn(board.getTiles()[0][1].getX(), board.getTiles()[0][1].getY(), board.getTiles()[0][1].getWidth(), board.getTiles()[0][1].getHeight(), Color.WHITE, handler);
+        board.getTiles()[0][1].setPiece(pawn);
         gameObjectManager.addGameObject(pawn);
 
 

@@ -50,6 +50,10 @@ public class Tile {
         }
     }
 
+    public void onMouseRelease() {
+
+    }
+
     public void setPiece(Pieces piece) {
         this.piece = piece;
     }
@@ -67,6 +71,9 @@ public class Tile {
     }
     public int getHeight() {
         return height;
+    }
+    public String getCoordnates() {
+        return coordnates;
     }
 
 }

@@ -68,6 +68,9 @@ public class MouseManager implements MouseListener, MouseMotionListener {
             rightPressed = false;
 //			System.out.println("Right");
         }
+        if (board != null) {
+            board.onMouseRelease();
+        }
 //        if (uiManager != null) {
 //            uiManager.onMouseRelease(e);
 //            System.out.println("Mouse Released");

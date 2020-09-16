@@ -67,7 +67,19 @@ public class Board {
         }
     }
 
+    public void onMouseRelease() {
+        for (int i = 0; i < tiles.length; i++) {
+            for (int j = 0; j < tiles.length; j++) {
+                tiles[i][j].onMouseRelease();
+            }
+        }
+    }
+
     private String map(int i) {
         return Character.toString((char) (i));
+    }
+
+    public Tile[][] getTiles() {
+        return tiles;
     }
 }
